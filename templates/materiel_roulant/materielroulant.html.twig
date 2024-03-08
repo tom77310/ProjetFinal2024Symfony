@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Materiel Roulant{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('CSS/materielRoulant.css') }}">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    </head>
+<body>
+{% for pageprincipale in MaterielRoulant %}
+
+    <h1>{{pageprincipale.NomCategorie}}</h1>
+    <div class="materielroulant">
+        <div class="locomotives">
+            <a href={{ path('app_locomotives') }}><img src={{ asset('Images/MaterielRoulant/') ~ pageprincipale.image1 }} alt="Locomotive" id="Locomotives"></a>
+            <p>Les Locomotives</p>
+        </div>
+        <div class="wagonfret">
+            <a href={{ path('app_wagonfret') }}><img src={{ asset('Images/MaterielRoulant/') ~ pageprincipale.image2 }} alt="WagonFret" id="WagonsFret"></a>
+            <p>Les Wagons de fret</p>
+        </div>
+    </div>
+        <div class="materielroulantbas">
+
+            <div class="automotrices">
+           <a href={{ path('app_automotrice') }}><img src={{ asset('Images/MaterielRoulant/') ~ pageprincipale.image3 }}  alt="Automotrices" id="automotrices"></a>
+                <p>Les Automotrices</p>
+            </div>
+            <div class="VoituresVoyageurs">
+            <a href={{ path('app_VV') }}><img src={{ asset('Images/MaterielRoulant/') ~ pageprincipale.image4 }}  alt="VoituresVoyageurs" id="VoituresVoyageurs"></a>
+                <p>Les Voitures de Voyageurs</p>
+            </div>
+        </div>
+{% endfor %}        
+</body>
+</html>
+{% endblock %}

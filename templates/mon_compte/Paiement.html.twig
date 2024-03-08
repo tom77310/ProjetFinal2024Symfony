@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{{ asset('CSS/Paiement.css') }}">
+    <title>Mode et délais de livraison</title>
+</head>
+<body>
+        <h1>Mode et délais de livraisons</h1>
+                
+        <div class='Droite'>
+            <div class="infosPersos">
+                <a href={{ path('app_InfosPersos') }}>Mes Informations Personnelles</a>
+            </div>
+            <div class="Retour">
+                <a href={{ path('app_Retractation') }}>Formulaire de retour</a>
+            </div>
+            <div class="Livraison">
+                <a href={{ path('app_Paiement') }}>Mode et délais de livraison</a>
+            </div>
+            <div class="remboursement">
+                <a href={{ path('app_Conditions') }}>Conditions de remboursement</a>
+            </div>
+        </div> {# Fin div Droite #}
+   
+
+<div class="conditionspaiement">
+    <div class="paiement">
+         <div class="plusieursfois">
+        <p>Le paiement en 3 ou 4 fois est possible. <br>
+        Le paiement en ligne est sécurisé. </p>
+        </div>
+    </div>
+    <div class="livraison">
+        <h2>Délais et options de Livraisons</h2>
+        <div class="pointrelais">
+            <p>La livraison en points relais est possible. <br>
+            Le délais de livraison en points relais peut mettre entre 2 et 3 jours.</p>
+        </div>
+        <div class="domicile">
+        <p>La livraison à domicile est également possible. <br>
+        Le délais de livraison peut mettre entre 3 et 6 jours.</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+{% endblock %}  

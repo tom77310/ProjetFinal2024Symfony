@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/Locomotives.css">
+    <title>Les Locomotives</title>
+</head>
+{% for pageprincipale in Locomotives %}
+<body>
+    <h1> {{pageprincipale.NomCategorie}} </h1>
+    <div class="Locomotive">
+        <div class="LocomotiveVapeur">
+            <a href={{ path("app_locovapeur") }}><img src={{ asset('Images/Locomotives/') ~ pageprincipale.image1 }} alt="LocomotiveVapeur" id="LocomotiveVapeur"></a>
+            <p>Locomotives a Vapeur</p>
+        </div>
+        <div class="LocomotiveDiesel">
+            <a href={{ path("app_locodiesel") }}><img src={{ asset('Images/Locomotives/') ~ pageprincipale.image2 }}  alt="LocomotiveDiesel" id="LocomotiveDiesel"></a>
+            <p>Les Locomotives Diesel</p>
+        </div>
+        <div class="LocomotiveElec">
+           <a href={{ path("app_locoelec") }}><img src={{ asset('Images/Locomotives/') ~ pageprincipale.image3 }}  alt="LocomotiveElec" id="LocomotiveElec"></a>
+            <p>Locomotives Electrique</p>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+
+</html>
+{% endblock %}
+
+
+       

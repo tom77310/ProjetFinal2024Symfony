@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/VoitureVoyageurs.css">
+    <title>Les Voitures de Voyageurs</title>
+</head>
+<body>
+{% for pagepresentation in VoituresVoyageurs %}
+<h1>{{pagepresentation.nomcategorie}} </h1>
+<div class="VoituresVoyageurs">
+    <div class="VoituresVoyageursHaut">
+        <div class="VoituresVoyageursTailleHO">
+            <a href= {{path('app_VVHO')}} ><img src={{asset('Images/VoitureVoyageurs/')~ pagepresentation.TailleHO}} alt="VoituresVoyageursTailleHO" id="VoituresVoyageursTailleHO"></a>
+            <p>Voiture de Voyageurs Taille HO</p>
+        </div>
+        <div class="VoituresVoyageursTailleZ">
+            <a href={{path('app_VVZ')}}><img src={{asset('Images/VoitureVoyageurs/')~ pagepresentation.TaillZ}} alt="VoituresVoyageursTailleZ" id="VoituresVoyageursTailleZ"></a>
+            <p>Voiture de Voyageurs Taille Z</p>
+        </div>
+    </div>
+    <div class="VoituresVoyageursBas">
+        <div class="VoituresVoyageursTailleN">
+            <a href={{path('app_VVN')}}><img src={{ asset('Images/VoitureVoyageurs/')~ pagepresentation.TailleN }} alt="VoituresVoyageursTailleN" id="VoituresVoyageursTailleN"></a>
+            <p>Voiture de Voyageurs Taille N</p>
+        </div>
+        <div class="VoituresVoyageursTailleG">
+            <a href={{path('app_VVG')}}><img src={{ asset('Images/VoitureVoyageurs/')~ pagepresentation.TailleG }} alt="VoituresVoyageursTailleG" id="VoituresVoyageursTailleG"></a>
+            <p>Voiture de Voyageurs Taille G</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</body>
+</html>
+{% endblock %}
+
+
+
+
+
+

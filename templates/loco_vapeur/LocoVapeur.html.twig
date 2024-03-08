@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{{ asset('CSS/LocoVapeur.css') }}">
+    <title>Les Locomotives a Vapeurs</title>
+</head>
+<body>
+
+<h1>Les Locomotives a Vapeurs </h1>
+
+{% for pagepresentation in LocoVapeur %}
+<div class="LocoVapeur">
+    <div class="LocoVapeurHaut">
+        <div class="LocoVapeurTailleHO">
+                <a href={{ path('app_locovapeurHO') }}><img src={{ asset('images/Locomotives/Vapeur/TailleHO/') ~ pagepresentation.TailleHO  }} alt="LocoVapeurTailleHO" id="LocoVapeurTailleHO"></a>
+            <p>Locomotive a Vapeur Taille HO</p>
+        </div>
+        <div class="LocoVapeurTailleZ">
+           <a href={{ path('app_locovapeurZ') }}><img src={{ asset('images/Locomotives/Vapeur/TailleZ/') ~ pagepresentation.TaillZ  }} alt="PresentationVapeurZ" id="LocoVapeurTailleZ"></a>
+            <p>Locomotive a Vapeur Taille Z</p>
+        </div>
+    </div>
+    <div class="LocoVapeurBas">
+        <div class="LocoVapeurTailleN">
+            <a href={{ path('app_locovapeurN') }}><img src={{ asset('images/Locomotives/Vapeur/TailleN/') ~ pagepresentation.TailleN  }} alt="PresentationVapeurN" id="LocoVapeurTailleN"></a>
+            <p>Locomotive a Vapeur Taille N</p>
+        </div>
+        <div class="LocoVapeurTailleG">
+           <a href={{ path('app_locovapeurG') }}><img src={{ asset('images/Locomotives/Vapeur/TailleG/') ~ pagepresentation.TailleG  }} alt="PresentationVapeurG" id="LocoVapeurTailleG"></a>
+           <p>Locomotive a Vapeur Taille G</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</body>
+</html>
+{% endblock %}

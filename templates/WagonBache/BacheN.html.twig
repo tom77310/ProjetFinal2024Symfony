@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{ asset("./CSS/PageProduit.css") }}>
+  <title>Wagon de Fret Bachés Taille N</title>
+</head>
+
+<body>
+ <div class="titre">
+        <a href={{ path("app_WagonBache") }}>Retour vers les Wagons Bachés</a>
+           {% for Produits in ProduitsN %}
+         <h1>{{Produits.nom}}</h1>
+    </div>
+<div class="WagonBacheTailleN">
+<img src={{ asset('Images/WagonFret/Bache/TailleN/') ~ Produits.Vue1 }} alt="BacheTailleNVue1" id="BacheTailleNVue1">
+<div class="droiteNBache">
+<p> Prix unitaire : {{Produits.prix}} €</p>
+
+{% if app.user %}
+
+    <a href={{ path('app_ajoutpanier', {id: Produits.id}) }}>Ajouter au panier</a>
+
+    {% else %}
+
+       <a href={{ path('app_login') }}>Connectez-vous pour ajouter cet article a votre panier</a>
+
+{% endif %}
+</div>
+</div>
+<div class="descriptionNBache">
+    <p>
+   <span class="titre_description">Description du Produit :</span>  <br>
+{{Produits.detail}}
+   </p>
+</div>
+{% endfor %}
+
+</body>
+</html>
+{% endblock %}

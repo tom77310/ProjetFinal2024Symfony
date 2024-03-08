@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{{ asset('CSS/Autorails.css') }}">
+    <title>Les Autorails</title>
+</head>
+<body>
+    <!-- Body -->
+{% for pagepresentation in Autorails %}
+
+<h1>{{pagepresentation.nomcategorie}}</h1>
+    <div class="AutorailsHaut">
+        <div class="AutorailsHO">
+            <a href={{ path('app_AutorailsHO') }}><img src={{ asset("./Images/Autorails/TailleHO/" ) ~ pagepresentation.TailleHO }} alt="AutorailsTailleHO" id="AutorailsHO"></a>
+            <p>Autorail Taille HO</p>
+        </div>
+        <div class="AutorailsN">
+            <a href={{ path('app_AutorailsN') }}><img src={{ asset("./Images/Autorails/TailleN/") ~ pagepresentation.TailleN }} alt="AutorailsTailleN" id="AutorailsN"></a>
+            <p>Autorail Taille N</p>
+        </div>
+    </div>
+        <div class="Autoirailsbas">
+            <div class="AutorailsG">
+            <a href={{ path('app_AutorailsG') }}><img src={{ asset("./Images/Autorails/TailleG/") ~ pagepresentation.TailleG }} alt="AutorailsTailleG" id="AutorailsG"></a>
+                <p>Autorail Taille G</p>
+            </div>
+        </div>
+        {% endfor %}
+</body>
+</html>
+{% endblock %}
+
+

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('CSS/Carrousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('CSS/PageProduitLoco.css') }}">
+  <title>Locomotive Elec Taille G</title>
+</head>
+
+<body>
+    <div class="titre">
+        <a href={{ path('app_locoelec') }}>Retour vers les Locomotives Electrique</a>
+                {% for Produits in ProduitG %}
+            <h1>{{Produits.nom}}</h1>
+    </div>
+<div class="LocoElecTailleG">
+             <img src={{ asset('images/Locomotives/Elec/TailleG/') ~ Produits.Vue1  }} alt="LocoElecTailleGvue1" id="LocoElecTailleGVue1">
+<div class="droiteGElec"><p> Prix unitaire : {{Produits.prix}} €</p>
+
+{% if app.user %}
+
+    <a href={{ path('app_ajoutpanier', {id: Produits.id}) }}>Ajouter au panier</a>
+
+    {% else %}
+
+       <a href={{ path('app_login') }}>Connectez-vous pour ajouter cet article a votre panier</a>
+
+{% endif %}
+</div>
+</div>
+<div class="descriptionGElec">
+    <p>
+   <span class="titre_description">Description du Produit :</span>  <br>
+{{Produits.detail}}
+</p>
+</div>
+{% endfor %}
+</body>
+<script src="./js/Carrousel.js"></script>
+</html>
+{% endblock %}

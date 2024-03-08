@@ -1,0 +1,46 @@
+footer{
+    background-color: rgba(30, 79, 255, 0.7);
+    padding: 10px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+/* Classe de la div qui contient les 3 logos et le texte du footer */
+.reseau{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+/* Texte  pour la page contact */
+.titre_contact{
+    margin-right: 47px;
+    display: flex;
+    flex-direction: row;
+}
+/* titre au-dessus des 3 logos des reseaux sociaux */
+.titre_reseau{
+   text-align: center;
+}
+/* logo facebook */
+.fb{
+    width: 10%;
+    height: auto;
+    text-align: center;
+}
+/* logo instagram */
+.insta{
+    width: 16%;
+    height: auto;
+}
+/* logo twitter */
+.twitter{
+    width: 8%;
+    height: auto;
+}
+
+#logo_footer{
+    width: 50%;
+    height: auto;
+    border-radius: 50%;
+}
+

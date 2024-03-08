@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{ asset('CSS/WagonCouvert.css') }}>
+    <title>Les Wagons de Fret Couvert</title>
+</head>
+<body>
+{% for pagepresentation in WagonCouvert %}
+<h1>Les Wagons de Fret Couvert </h1>
+
+<div class="WagonsCouvert">
+    <div class="WagonsCouvertHaut">
+        <div class="WagonCouvertTailleHO">
+            <a href={{ path("app_CouvertHO") }}><img src={{ asset("/Images/WagonFret/Couvert/TailleHO/") ~ pagepresentation.TailleHO }} alt="WagonCouvertTailleHO" id="WagonCouvertTailleHO"></a>
+            <p>Wagon de Fret Type Couvert Taille HO</p>
+        </div>
+        <div class="WagonCouvertTailleZ">
+           <a href={{ path("app_CouvertZ") }}> <img src={{ asset("/Images/WagonFret/Couvert/TailleZ/") ~ pagepresentation.TaillZ }} alt="WagonCouvertTailleZ" id="WagonCouvertTailleZ"></a>
+            <p>Wagon de Fret type Couvert Taille Z</p>
+        </div>
+    </div>
+    <div class="WagonsFretBas">
+        <div class="WagonCouvertTailleN">
+            <a href={{ path("app_CouvertN") }}><img src={{ asset("/Images/WagonFret/Couvert/TailleN/") ~ pagepresentation.TailleN  }}  alt="WagonCouvertTailleN" id="WagonCouvertTailleN"></a>
+            <p>Wagon de Fret Type Couvert Taille N</p>
+        </div>
+        <div class="WagonCouvertTailleG">
+            <a href={{ path("app_CouvertG") }}><img src={{ asset("/Images/WagonFret/Couvert/TailleG/") ~ pagepresentation.TailleG }}  alt="WagonCouvertTailleG" id="WagonCouvertTailleG"></a>
+            <p>Wagon de Fret type Couvert Taille G</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</body>
+</html>
+
+{% endblock %}
+
+
+
+
+
+

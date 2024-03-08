@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/PageProduitAutomotrices.css">
+    <link rel="stylesheet" href="./CSS/Carrousel.css">
+  <title>Autorails Taille G</title>
+</head>
+
+<body>
+
+    <!-- Body -->
+    <div class="titre">
+        <a href={{ path('app_Autorails') }}>Retour vers les Autorails</a>
+       {% for Produits in ProduitsG %}
+       <h1>{{Produits.nom}}</h1>
+    </div>
+<div id="carousel-container">
+  <div id="carousel">
+    <div class="carousel-item">
+<img src={{ asset("./Images/Autorails/TailleG/")  ~ Produits.Vue1 }} alt="AutorailsTailleGVue1" id="AutorailsTailleGVue1">
+    </div>
+    <div class="carousel-item">
+<img src={{ asset("./Images/Autorails/TailleG/")  ~ Produits.Vue2 }} alt="AutorailsTailleGVue2" id="AutorailsTailleGVue2">
+    </div>
+  </div>
+</div>
+<div class="bouton">
+    <button id="prev-btn" onclick="prevSlide()">Précédent</button>
+    <button id="next-btn" onclick="nextSlide()">Suivant</button>
+</div>
+<div class="droite"><p> Prix unitaire : {{Produits.prix}} €</p>
+
+{% if app.user %}
+
+    <a href={{ path('app_ajoutpanier', {id: Produits.id}) }}>Ajouter au panier</a>
+
+    {% else %}
+
+       <a href={{ path('app_login') }}>Connectez-vous pour ajouter cet article a votre panier</a>
+
+{% endif %}
+</div>
+<div class="descriptionGAutorails">
+    <p>
+   <span class="titre_description">Description du Produit :</span>  <br>
+{{Produits.detail}}
+   </p>
+</div>
+{% endfor %}
+</body>
+<script src="./js/Carrousel.js"></script>
+</html>
+{% endblock %}

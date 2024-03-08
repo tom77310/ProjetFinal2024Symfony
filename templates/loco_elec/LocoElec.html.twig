@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{{ asset('CSS/LocoElec.css') }}">
+    <title>Les Locomotives Elec</title>
+</head>
+<body>
+{% for pagepresentation in LocoElec %}
+<h1>{{pagepresentation.nomcategorie}} </h1>
+
+<div class="LocoElec">
+    <div class="LocoElecHaut">
+        <div class="LocoElecTailleHO">
+        <a href={{ path('app_locoelecHO') }}><img src={{ asset('images/Locomotives/Elec/TailleHO/') ~ pagepresentation.TailleHO  }} alt="LocoElecTailleHO" id="LocoElecTailleHO"></a>
+            <p>Locomotive Elec Taille HO</p>
+        </div>
+        <div class="LocoElecTailleZ">
+        <a href={{ path('app_locoelecZ') }}><img src={{ asset('images/Locomotives/Elec/TailleZ/') ~ pagepresentation.TaillZ  }} alt="PresentationElecZ" id="LocoElecTailleZ"></a>
+            <p>Locomotive Elec Taille Z</p>
+        </div>
+    </div>
+    <div class="LocoElecBas">
+        <div class="LocoElecTailleN">
+        <a href={{ path('app_locoelecN') }}><img src={{ asset('images/Locomotives/Elec/TailleN/') ~ pagepresentation.TailleN  }} alt="PresentationElecN" id="LocoElecTailleN"></a>
+            <p>Locomotive Elec Taille N</p>
+        </div>
+        <div class="LocoElecTailleG">
+        <a href={{ path('app_locoelecG') }}><img src={{ asset('images/Locomotives/Elec/TailleG/') ~ pagepresentation.TailleG  }} alt="PresentationElecG" id="LocoElecTailleG"></a>
+           <p>Locomotive Elec Taille G</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+{% endfor %}
+{% endblock %}
+
+
+
+
+
+

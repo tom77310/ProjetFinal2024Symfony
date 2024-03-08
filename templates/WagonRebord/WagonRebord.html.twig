@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{ asset('CSS/WagonRebord.css') }}>
+    <title>Les Wagons de Fret Rebord</title>
+</head>
+<body>
+{% for pagepresentation in WagonRebord %}
+<h1>Les Wagons de Fret Rebord </h1>
+
+<div class="WagonsRebord">
+    <div class="WagonsRebordsHaut">
+        <div class="WagonRebordTailleHO">
+            <a href={{ path("app_RebordHO") }}><img src={{ asset("/Images/WagonFret/Rebord/TailleHO/") ~ pagepresentation.TailleHO }} alt="WagonRebordTailleHO" id="WagonRebordTailleHO"></a>
+            <p>Wagon de Fret Type Rebord Taille HO</p>
+        </div>
+        <div class="WagonRebordTailleZ">
+           <a href={{ path("app_RebordZ") }}> <img src={{ asset("/Images/WagonFret/Rebord/TailleZ/")~ pagepresentation.TaillZ }} alt="WagonRebordTailleZ" id="WagonRebordTailleZ"></a>
+            <p>Wagon de Fret type Rebord Taille Z</p>
+        </div>
+    </div>
+    <div class="WagonsRebordsBas">
+        <div class="WagonRebordTailleN">
+            <a href={{ path("app_RebordN") }}><img src={{ asset("/Images/WagonFret/Rebord/TailleN/")~ pagepresentation.TailleN }}  alt="WagonRebordTailleN" id="WagonRebordTailleN"></a>
+            <p>Wagon de Fret Type Rebord Taille N</p>
+        </div>
+        <div class="WagonRebordTailleG">
+            <a href={{ path("app_RebordG") }}><img src={{ asset("/Images/WagonFret/Rebord/TailleG/")~ pagepresentation.TailleG }}  alt="WagonRebordTailleG" id="WagonRebordTailleG"></a>
+            <p>Wagon de Fret type Rebord Taille G</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</body>
+</html>
+
+{% endblock %}

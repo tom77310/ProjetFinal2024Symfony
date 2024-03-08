@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/PageProduit.css">
+    <link rel="stylesheet" href="./CSS/Carrousel.css">
+  <title>Wagon de Fret Rebord Taille HO</title>
+</head>
+
+<body>
+    <div class="titre">
+        <a href={{ path("app_WagonRebord") }}>Retour vers les Wagons Rebord</a>
+         {% for Produits in ProduitsHO %}
+        <h1>{{Produits.nom}}</h1>
+    </div>
+    <!-- Carrousel -->
+<div id="carousel-container">
+  <div id="carousel">
+    <div class="carousel-item">
+    <img src={{ asset('Images/WagonFret/Rebord/TailleHO/')~ Produits.Vue1 }} alt="RebordTailleHOVue1" id="RebordTailleHOVue1">
+    </div>
+    <div class="carousel-item">
+    <img src={{ asset('Images/WagonFret/Rebord/TailleHO/')~ Produits.Vue2 }} alt="RebordTailleHOVue2" id="RebordTailleHOVue2">
+    </div>
+    <div class="carousel-item">
+    <img src={{ asset('Images/WagonFret/Rebord/TailleHO/')~ Produits.Vue3 }} alt="RebordTailleHOVue3" id="RebordTailleHOVue3">
+    </div>
+    <div class="carousel-item">
+    <img src={{ asset('Images/WagonFret/Rebord/TailleHO/')~ Produits.Vue4 }} alt="RebordTailleHOVue4" id="RebordTailleHOVue4">
+    </div>
+    <div class="carousel-item">
+    <img src={{ asset('Images/WagonFret/Rebord/TailleHO/')~ Produits.Vue5 }} alt="RebordTailleHOVue5" id="RebordTailleHOVue5">
+    </div>
+  </div>
+</div>
+<div class="bouton">
+    <button id="prev-btn" onclick="prevSlide()">Précédent</button>
+    <button id="next-btn" onclick="nextSlide()">Suivant</button>
+</div>
+<div class="droite">
+<p> Prix unitaire : {{Produits.prix}} €</p>
+
+{% if app.user %}
+
+    <a href={{ path('app_ajoutpanier', {id: Produits.id}) }}>Ajouter au panier</a>
+
+    {% else %}
+
+       <a href={{ path('app_login') }}>Connectez-vous pour ajouter cet article a votre panier</a>
+
+{% endif %}
+</div>
+<div class="descriptionHORebord">
+    <p>
+   <span class="titre_description">Description du Produit :</span>  <br>
+{{Produits.detail}}
+    </p>
+
+</div>
+
+
+{% endfor %}
+</body>
+
+<script src="./js/Carrousel.js"></script>
+
+</html>
+
+{% endblock %}

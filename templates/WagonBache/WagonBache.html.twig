@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{ asset('/CSS/WagonBache.css') }}>
+    <title>Les Wagons de Fret Bachés</title>
+</head>
+<body>
+{% for pagepresentation in WagonBache %}
+
+<h1>{{pagepresentation.nomcategorie}} </h1>
+
+<div class="WagonsBache">
+    <div class="WagonsBacheHaut">
+        <div class="WagonBacheTailleHO">
+            <a href={{ path("app_BacheHO") }}><img src={{ asset("/Images/WagonFret/Bache/TailleHO/")~ pagepresentation.TailleHO }} alt="WagonBacheTailleHO" id="WagonBacheTailleHO"></a>
+            <p>Wagon de Fret Type Bachés Taille HO</p>
+        </div>
+        <div class="WagonBacheTailleZ">
+           <a href={{ path("app_BacheZ") }}> <img src={{ asset("/Images/WagonFret/Bache/TailleZ/") ~ pagepresentation.TaillZ}} alt="WagonBacheTailleZ" id="WagonBacheTailleZ"></a>
+            <p>Wagon de Fret type Bachés Taille Z</p>
+        </div>
+    </div>
+    <div class="WagonsBacheBas">
+        <div class="WagonBacheTailleN">
+            <a href={{ path("app_BacheN") }}><img src={{ asset("/Images/WagonFret/Bache/TailleN/") ~ pagepresentation.TailleN}}  alt="WagonBacheTailleN" id="WagonBacheTailleN"></a>
+            <p>Wagon de Fret Type Bachés Taille N</p>
+        </div>
+        <div class="WagonBacheTailleG">
+            <a href={{ path("app_BacheG") }}><img src={{ asset("/Images/WagonFret/Bache/TailleG/") ~ pagepresentation.TailleG}}  alt="WagonBacheTailleG" id="WagonBacheTailleG"></a>
+            <p>Wagon de Fret type Bachés Taille G</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+</body>
+</html>
+
+{% endblock %}

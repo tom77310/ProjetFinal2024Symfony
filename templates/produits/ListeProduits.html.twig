@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste produit{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href={{ asset('/CSS/ListeProduits.css') }}>
+    <h1>Liste des produits</h1>
+
+    <table class="liste_produits">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Detail</th>
+                <th>Quantité</th>
+                <th>Nom_categorie</th>
+                <th>Vue1</th>
+                <th>Vue2</th>
+                <th>Vue3</th>
+                <th>Vue4</th>
+                <th>Vue5</th>
+                <th>Details</th>
+                <th>Modifier</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.detail }}</td>
+                <td>{{ produit.quantite }}</td>
+                <td>{{ produit.nomCategorie }}</td>
+                <td>{{ produit.vue1 }}</td>
+                <td>{{ produit.vue2 }}</td>
+                <td>{{ produit.vue3 }}</td>
+                <td>{{ produit.vue4 }}</td>
+                <td>{{ produit.vue5 }}</td>
+                 <td>
+                    <a href="{{ path('DetailProduit', {'id': produit.id}) }}">Details</a>
+                </td>
+                <td>
+                    <a href="{{ path('ModifProduit', {'id': produit.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<div class="NouveauProduit">
+    <a href="{{ path('NewProduits') }}">Ajouter un produit</a>
+</div>
+
+{% endblock %}

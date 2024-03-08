@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/TGV.css">
+    <title>Les TGV</title>
+</head>
+
+<body>
+{% for pagepresentation in TGV %}
+    <h1>{{pagepresentation.NomCategorie}}</h1>
+    <div class="TGV">
+        <div class="TGVHO">
+            <a href={{ path('app_TGVHO') }}><img src={{ asset('Images/TGV/TailleHO/')~ pagepresentation.TailleHO }} alt="TGVTailleHO" id="TGVHO"></a>
+            <p>TGV Taille HO</p>
+        </div>
+        <div class="TGVN">
+            <a href={{ path('app_TGVN') }}><img src={{ asset('Images/TGV/TailleN/')~ pagepresentation.TailleN }} alt="TGVTailleN" id="TGVN"></a>
+            <p>TGV Taille N</p>
+        </div>
+    </div>
+{% endfor %}
+</body>
+
+</html>
+{% endblock %}

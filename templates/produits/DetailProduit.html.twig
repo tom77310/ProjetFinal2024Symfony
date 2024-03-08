@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Details produits{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('CSS/DetailsProduits.css') }}">
+    <h1>Details du produit séléctionné</h1>
+
+    <div class="details_produit">
+       
+                <p>Id : {{ produit.id }}</p>
+
+                <p>Prix : {{ produit.prix }}</p>
+
+                <p>Details : {{ produit.detail }}</p>
+
+                <p>Nom du produit : {{ produit.nom }}</p>
+
+                <p>Quantité disponible : {{ produit.quantite }}</p>
+
+                <p>Vue 1 :{{ produit.vue1 }}</p>
+
+                <p>Vue 2 : {{ produit.vue2 }}</p>
+
+                <p>Vue 3 : {{ produit.vue3 }}</p>
+
+                <p>Vue 4 : {{ produit.vue4 }}</p>
+
+                <p>Vue 5 : {{ produit.vue5 }}</p>
+
+                <p>Nom de la categorie : {{ produit.nomCategorie }}</p>
+
+
+    </div>
+<div class="Retour">
+    <a href="{{ path('ListeProduits') }}">Retour vers la liste des produits</a>
+</div>
+<div class="Modifier">
+    <a href="{{ path('ModifProduit', {'id': produit.id}) }}">Modifier</a>
+</div>
+<div class="Supprimer">
+    {{ include('produits/FormSupprimer.html.twig') }}
+</div>
+{% endblock %}

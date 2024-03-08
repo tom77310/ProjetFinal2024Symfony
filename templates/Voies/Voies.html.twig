@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/Voies.css">
+    <title>Les Voies</title>
+</head>
+
+<body>
+{% for pagepresentation in Voies %}
+  <h1>Les Voies</h1>
+<div class="LesVoiesHaut">
+<div class="TailleHO">
+            <a href={{ path('app_VoiesHO') }}><img src={{ asset('Images/Voies/TailleHO/') ~ pagepresentation.TailleHO }} alt="VoiesTailleHO" id="TailleHO"></a>
+            <p>Voies Taille HO</p>
+        </div>
+        <div class="TailleZ">
+            <a href={{path('app_VoiesZ')}}><img src={{ asset('Images/Voies/TailleZ/')~ pagepresentation.TaillZ}} alt="VoiesTailleZ" id="TailleZ"></a>
+            <p>Voies Taille Z</p>
+        </div>
+    </div>
+        <div class="LesVoiesBas">
+
+            <div class="TailleN">
+            <a href={{path('app_VoiesN')}}><img src={{ asset('Images/Voies/TailleN/')~ pagepresentation.TailleN }} alt="VoiesTailleN" id="TailleN"></a>
+                <p>Voies Taille N</p>
+            </div>
+            <div class="TailleG">
+            <a href={{path('app_VoiesG')}}><img src={{ asset('Images/Voies/TailleG/')~ pagepresentation.TailleG }} alt="VoiesTailleG" id="TailleG"></a>
+                <p>Voies Taille G</p>
+            </div>
+        </div>
+{% endfor %}
+</body>
+</html>
+{% endblock %}

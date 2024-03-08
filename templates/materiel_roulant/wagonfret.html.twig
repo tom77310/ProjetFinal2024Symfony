@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{ asset('/CSS/WagonsFret.css') }}>
+    <title>Les Wagons de Fret</title>
+</head>
+
+<body>
+{% for pageprincipale in WagonFret %}
+<h1>{{pageprincipale.NomCategorie}} </h1>
+<div class="WagonsFret">
+        <div class="WagonCouvert">
+            <a href={{ path("app_WagonCouvert") }}><img src={{ asset('Images/WagonFret/') ~ pageprincipale.image1 }} alt="WagonCouvert" id="WagonCouvert"></a>
+            <p>Wagon de Fret Type Couvert</p>
+        </div>
+        <div class="WagonRebord">
+            <a href={{ path("app_WagonRebord") }}><img src={{ asset('Images/WagonFret/') ~ pageprincipale.image2 }} alt="WagonRebord" id="WagonRebord"></a>
+            <p>Wagon de Fret type plat à rebord</p>
+        </div>
+        <div class="WagonBache">
+            <a href={{ path("app_WagonBache") }}><img src={{ asset('Images/WagonFret/') ~ pageprincipale.image3 }} alt="WagonBache" id="WagonBache"></a>
+            <p>Wagon de Fret type Bachés</p>
+        </div>
+</div>
+{% endfor %}        
+</body>
+</html>
+{% endblock %}
+
+
+
+

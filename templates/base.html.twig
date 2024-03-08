@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Header et footer{% endblock %}</title>
+        <link rel="stylesheet" href={{ asset('CSS/Header.css') }} >
+            <link rel="stylesheet" href={{ asset('CSS/Footer.css') }}>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <!--Barre de navigation  -->
+    <nav class="navbar" id="ma-navbar">
+        <!-- Navigation commune pour tous les utilisateurs -->
+      <a href= {{ path('app_acceuil') }} >
+            <img id="logo_nav" src={{ asset('Images/image_barre_de_nav/logo_site.png') }} alt="logo_site"> 
+            {# Logo #}
+        </a>
+        {# Menu Burger pour responsive #}
+            <span class="nav-button">
+                <svg viewbox="0 0 100 80" width="40" height="40">
+                    <rect width="100" height="15"></rect>
+                    <rect y="35" width="100" height="15"></rect>
+                    <rect y="70" width="100" height="15"></rect>
+                </svg>
+            </span>
+                <ul class="nav-menu">
+                    <li class="nav-drop">
+                        <a href={{ path('app_materiel_roulant') }}>Le materiel roulant</a>
+                        <ul class="dropdown">
+                            <li class="drop-item">
+                                <a href={{ path('app_locomotives') }}>Les Locomotives</a>
+                            </li>
+                            <li class="drop-item">
+                                <a href={{ path('app_wagonfret') }}>Les Wagons de Fret</a>
+                            </li>
+                            <li class="drop-item">
+                                <a href={{ path('app_automotrice') }}>Les Automotrices</a>
+                            </li>
+                            <li class="drop-item">
+                                <a href={{ path('app_VV') }}>Les Voitures de Voyageurs</a>
+                            </li>
+                        </ul>
+                    </li>
+                        <li class="nav-item">
+                        <a class="hideHover navCat" href={{ path('app_nouveautes') }}>
+                            Les nouveautés
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="hideHover navCat" href={{ path('app_tailles') }}>
+                            Tailles existantes
+                        </a>
+                    </li>    
+                    <li class="nav-item">
+                        <a class="hideHover navCat" href={{ path('app_Voies') }}>
+                            Les voies
+                        </a>
+                    </li>
+                    {% if app.user %}
+                        <!-- Éléments visibles uniquement pour les administrateurs -->
+                            {% if is_granted('ROLE_ADMIN')  %}
+                                <li class="nav-item">
+                                    <a class="hideHover navCat" href={{ path('ListeUtilisateurs') }}>
+                                        Liste des Utilisateurs
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="hideHover navCat" href={{ path('ListeProduits') }}>
+                                        Liste des produits
+                                    </a>
+                                </li>
+                            {% else %}
+                                <!-- Éléments visibles uniquement pour les utilisateurs connectés -->
+                                <li class="nav-item">
+                                    <a class="hideHover navCat" href={{ path('app_MonCompte') }}>
+                                        Mon Compte
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="hideHover navCat" href={{ path('app_panier') }}>
+                                        Mon Panier
+                                    </a>
+                                </li>
+                            {% endif %}
+                                <li class="nav-item">
+                                    <a class="hideHover navCat" href={{ path('app_logout') }}>
+                                        Se deconnecter
+                                    </a>
+                                </li>
+                            {% else %}
+                                <!-- Éléments visibles uniquement pour les utilisateurs non connectés -->
+                                <li class="nav-item">
+                                    <a class="hideHover navCat" href={{ path('app_login') }}>
+                                        Se connecter
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="hideHover navCat" href={{ path('app_inscription') }}>
+                                        S'inscrire
+                                    </a>
+                                </li>
+                    {% endif %}
+                </ul>   
+            </nav>
+                {% block body %}{% endblock %}
+            
+
+<footer>
+<a class="hideHover" href={{ path('app_acceuil') }}>
+            <img id="logo_footer" src={{ asset('Images/images_footer/logo_site.png') }} alt="logo_site">
+        </a>
+    <div class="reseau">
+
+        <p class="titre_reseau">Les réseaux sociaux</p>
+        <img src={{ asset('Images/images_footer/Logo_fb.png') }} alt="fb" class="fb">
+        <img src={{ asset('Images/images_footer/Logo_insta.png') }} alt="insta" class="insta">
+        <img src={{ asset('Images/images_footer/Logo_twitter.png') }} alt="twitter" class="twitter">
+    </div>    
+        <a class="titre_contact" href={{ path('app_contact') }}>Contactez-nous</a>
+</footer>
+    </body>
+    <script src="./js/Menu_burger.js"></script>
+</html>
+

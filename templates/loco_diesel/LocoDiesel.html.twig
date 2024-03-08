@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{{ asset('CSS/LocoDiesel.css') }}">
+    <title>Les Locomotives Diesels</title>
+</head>
+<body>
+<h1>Les Locomotives Diesels </h1>
+{% for pagepresentation in LocoDiesel %}
+
+<div class="LocoDiesel">
+    <div class="LocoDieselHaut">
+        <div class="LocoDieselTailleHO">
+                <a href={{ path('app_locodieselHO') }}><img src={{ asset('images/Locomotives/Diesel/TailleHO/') ~ pagepresentation.TailleHO  }} alt="LocoDieselTailleHO" id="LocoDieselTailleHO"></a>
+            <p>Locomotive Diesel Taille HO</p>
+        </div>
+        <div class="LocoDieselTailleZ">
+           <a href={{ path('app_locodieselZ') }}><img src={{ asset('images/Locomotives/Diesel/TailleZ/') ~ pagepresentation.TaillZ  }} alt="PresentationDieselZ" id="LocoDieselTailleZ"></a>
+            <p>Locomotive Diesel Taille Z</p>
+        </div>
+    </div>
+    <div class="LocoDieselBas">
+        <div class="LocoDieselTailleN">
+            <a href={{ path('app_locodieselN') }}><img src={{ asset('images/Locomotives/Diesel/TailleN/') ~ pagepresentation.TailleN  }} alt="PresentationDieselN" id="LocoDieselTailleN"></a>
+            <p>Locomotive Diesel Taille N</p>
+        </div>
+        <div class="LocoDieselTailleG">
+           <a href={{ path('app_locodieselG') }}><img src={{ asset('images/Locomotives/Diesel/TailleG/') ~ pagepresentation.TailleG  }} alt="PresentationDieselG" id="LocoDieselTailleG"></a>
+           <p>Locomotive Diesel Taille G</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</body>
+</html>
+{% endblock %}
+
+
+
+
+
+

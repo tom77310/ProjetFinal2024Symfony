@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/Nouveautes.css">
+    <title>Les nouveautés</title>
+</head>
+<body>
+{% for pagepresentation in Nouveaute %}
+
+<h1>{{pagepresentation.nomcategorie}} </h1>
+<div class="nouveautes">
+
+    <div class="NewWagonFret">
+            <a href={{ path('app_nouveautesN') }}><img src={{ asset('Images/Nouveautés/') ~ pagepresentation.TailleN }} alt="NewWagonFret" id="NewWagonFret"></a>
+        <p>Nouveau Wagon de fret en Taille N</p>
+    </div>
+    <div class="NewVoitureVoyageurs">
+            <a href={{path('app_nouveautesHO')}}><img src={{ asset('Images/Nouveautés/') ~ pagepresentation.TailleHO }} alt="NewVoitureVoyageurs" id="NewVoitureVoyageurs"></a>
+        <p>Nouvelle Voiture de voyageurs Taille HO</p>
+    </div>
+</div>
+{% endfor %}
+
+</body>
+</html>
+{% endblock %}
+
+
+
